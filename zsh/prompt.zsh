@@ -14,11 +14,12 @@ git_branch() {
 }
 
 git_dirty() {
-  if $(! $git status -s &> /dev/null)
+  st=$($git status 2>/dev/null | tail -n 1)
+  if [[ $st == "" ]]
   then
     echo ""
   else
-    if [[ $($git status --porcelain) == "" ]]
+    if [[ "$st" =~ ^nothing ]]
     then
       echo "on %{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}"
     else
@@ -58,10 +59,17 @@ ruby_version() {
   fi
 }
 
+ruby_gemset() {
+  if (( $+commands[rbenv] ))
+  then
+    echo "$(rbenv gemset active | awk '{print $1}')"
+  fi
+}
+
 rb_prompt() {
   if ! [[ -z "$(ruby_version)" ]]
   then
-    echo "%{$fg_bold[yellow]%}$(ruby_version)%{$reset_color%} "
+    echo "%{$fg_bold[yellow]%}$(ruby_version)@$(ruby_gemset)%{$reset_color%} "
   else
     echo ""
   fi
