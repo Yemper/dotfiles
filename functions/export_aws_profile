@@ -1,0 +1,4 @@
+export_aws_profile() {
+  AWS_ACCESS_KEY_ID=`extract_aws_profile_data.rb $HOME $1 1`
+  AWS_SECRET_ACCESS_KEY=`extract_aws_profile_data.rb $HOME $1 2`
+}
