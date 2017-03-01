@@ -1,0 +1,8 @@
+profile=${1:-default}
+aws_access_key_id=$(aws configure get $profile.aws_access_key_id)
+aws_secret_access_key=$(aws configure get $profile.aws_secret_access_key)
+aws_region=$(aws configure get $profile.region)
+
+echo export $(echo aws_access_key_id | tr '[a-z]' '[A-Z]')=$aws_access_key_id 
+echo export $(echo aws_secret_access_key | tr '[a-z]' '[A-Z]')=$aws_secret_access_key
+echo export $(echo aws_region | tr '[a-z]' '[A-Z]')=$aws_region

@@ -4,7 +4,7 @@
 
 --type-set=coffeescript=.coffee
 --type-set=coffee=.coffee
- 
+
 --type-set=jade=.jade
 --type-set=feature=.feature
 --type-set=json=.json
@@ -19,6 +19,7 @@ js=json,tmpl,jst,coffee
 css=sass,scss
 
 --ignore-dir=.git
+--ignore-dir=dist
 --ignore-dir=node_modules
 --ignore-dir=.bundle
 --ignore-dir=vendor/bundle

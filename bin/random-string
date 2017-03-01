@@ -1,0 +1,2 @@
+#!/bin/sh
+date +%s | gsha256sum | base64 | head -c 32 ; echo

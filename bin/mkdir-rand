@@ -1,0 +1,7 @@
+#!/bin/bash
+
+folder_name=`date | gmd5sum | cut -d ' ' -f 1`
+
+echo "$folder_name"
+
+mkdir $folder_name

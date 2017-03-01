@@ -7,3 +7,4 @@ read_pipe.sh
 .rbenv-gemsets
 .ruby-version
 tags
+.env

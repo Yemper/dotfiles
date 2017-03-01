@@ -1,0 +1,17 @@
+#!/bin/sh
+
+set -e
+
+echo "User Name..."
+read username
+
+echo "Server Address..."
+read server_address
+
+echo "File Name..."
+read filename
+
+echo "Path..."
+read path
+
+scp $username@$server_address:$path/$filename $filename

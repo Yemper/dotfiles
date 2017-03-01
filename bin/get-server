@@ -1,0 +1,62 @@
+#!/bin/bash
+profile=''
+usage() {
+
+echo -n "Usage: $0 [params] [ options]
+
+Options:
+      rds    - show RDS intances
+      elb    - show ELBs
+      [*]    - show instances of a specific name   
+Parameters:
+      --profile profile_name            Use specified profile
+      -h, --help                        Print this message
+"
+   exit 0
+}
+
+cmd(){
+  [ -z "$CMD" ] && {
+     aws ec2 describe-instances --filters Name=instance-state-name,Values=running $name_filter --query 'Reservations[*].Instances[].[InstanceId,PrivateIpAddress,InstanceType, Placement.AvailabilityZone, Tags[?Key==`Name`].Value | [0]]' --output=text $profile $@ ;
+  exit 0 
+ }
+     if [ -n "$name_filter" ]; then
+       filter="--filters $name_filter" 
+     fi
+     eval "$CMD $filter"
+}
+
+
+if [  $# -gt 0 ]; then
+while [[ $# > 0 ]] ; do
+   case "$1" in 
+    -h|--help)
+       usage
+       ;;
+    --profile*) 
+       profile=$1;
+       shift
+       ;;
+
+    rds) 
+       shift
+       aws rds describe-db-instances  --query 'DBInstances[*].[ Engine , DBInstanceClass, DBInstanceIdentifier, Endpoint.Address ]' --output=text $profile $@
+       exit
+       ;;
+    elb) 
+       shift
+       aws elb describe-load-balancers  --query 'LoadBalancerDescriptions[*].[ LoadBalancerName, ListenerDescriptions[*].Listener, DNSName] ' --output=text $profile $@ | sed ':a;$!N;s/\n\([0-9]\)/\t\1/;ta;P;D'
+       exit 0;
+       ;;
+    *)
+       name_filter="$name_filter Name=tag:Name,Values=*$1*"
+       shift
+       ;;
+esac
+done
+
+else
+   name_filter=''
+fi
+
+cmd

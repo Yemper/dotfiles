@@ -1,5 +1,6 @@
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/.dotfiles
+export ZSH_THEME="powerline"
 
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/Code
@@ -42,3 +43,6 @@ unset config_files
 
 # ZSH settings
 zstyle :omz:plugins:ssh-agent agent-forwarding on
+
+export NVM_DIR="/Users/avitzurel/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

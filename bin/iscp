@@ -1,0 +1,15 @@
+#!/bin/bash
+
+echo "Input user name: "
+read user_name
+
+echo "Input server address: "
+read server_address
+
+echo "Input path:"
+read path
+
+echo "Input file name:"
+read filename
+
+scp $user_name@$server_address:$path/$filename $filename
