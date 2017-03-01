@@ -122,7 +122,7 @@ set -g status-right "#[fg=blue]#S #I:#P #[fg=yellow]:: %d %b %Y #[fg=green]:: #(
 
 #Evil mouse settings
 ##scroll buffer
-setw -g mode-mouse on
+setw -g mouse on
 set -g mouse-select-pane on
 set -g mouse-resize-pane on
 set -g mouse-select-window on
