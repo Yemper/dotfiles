@@ -44,5 +44,5 @@ unset config_files
 # ZSH settings
 zstyle :omz:plugins:ssh-agent agent-forwarding on
 
-export NVM_DIR="/Users/avitzurel/.nvm"
+export NVM_DIR="/Users/avi/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

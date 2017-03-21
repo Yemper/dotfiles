@@ -137,6 +137,23 @@ install_dotfiles () {
   done
 }
 
+install_additional_settings_from_dropbox() {
+  info 'installing dotfiles'
+  echo '\n'
+  info 'Input the dropbox settings location'
+  echo '\n'
+  read dropbox_location
+
+  if [ -n "$dropbox_location" ]; then
+    for src in $(ls "$dropbox_location")
+    do
+      dst="$HOME/.$(basename "${src%.*}")"
+    link_file "$dropbox_location/$src" "$dst"
+    done
+  fi
+}
+
+install_additional_settings_from_dropbox
 setup_gitconfig
 install_dotfiles
 

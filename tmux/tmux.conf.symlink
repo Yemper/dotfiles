@@ -120,12 +120,4 @@ set -g status-left "#[fg=green]: #h : #[fg=yellow]#(ifconfig en0 | grep 'inet ' 
 set -g status-right-length 60
 set -g status-right "#[fg=blue]#S #I:#P #[fg=yellow]:: %d %b %Y #[fg=green]:: #(date | awk '{print $4}') ::"
 
-#Evil mouse settings
-##scroll buffer
-setw -g mouse on
-set -g mouse-select-pane on
-set -g mouse-resize-pane on
-set -g mouse-select-window on
-#setw -g mode-mouse off
-
 bind S command-prompt -p "Make/attach session:" "new-window 'tmuxstart \'%%\''"

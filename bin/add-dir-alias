@@ -1,0 +1,3 @@
+#!/bin/sh
+
+echo "alias $1='cd $2'" >> ~/.dotfiles/system/dir-aliases.zsh
