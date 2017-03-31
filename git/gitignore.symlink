@@ -8,3 +8,5 @@ read_pipe.sh
 .ruby-version
 tags
 .env
+*.pyc
+.python-version
