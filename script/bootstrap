@@ -144,7 +144,9 @@ install_additional_settings_from_dropbox() {
   info 'Input the dropbox settings location'
   echo '\n'
   read dropbox_location
+  local overwrite_all=false backup_all=false skip_all=false
 
+  rm -f ~/.zsh_history
   if [ -n "$dropbox_location" ]; then
     for src in $(ls "$dropbox_location")
     do

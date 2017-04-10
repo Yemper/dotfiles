@@ -27,6 +27,7 @@ css=sass,scss
 --ignore-dir=log
 --ignore-dir=.tmp
 --ignore-dir=.tox
+--ignore-dir=.eggs
 --ignore-file=ext:tfstate
 
 --ignore-file=is:tags
