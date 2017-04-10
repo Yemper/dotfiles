@@ -6,5 +6,6 @@
 read_pipe.sh
 .rbenv-gemsets
 .ruby-version
+.python-version
 tags
 .env
