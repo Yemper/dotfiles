@@ -7,5 +7,5 @@ atom.symlink/storage
 atom.symlink/themes
 
 git/gitconfig.symlink
-zsh/hidden_aliases.zsh
 system/dir-aliases.zsh
+*/hidden_*

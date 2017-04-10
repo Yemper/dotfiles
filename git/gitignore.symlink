@@ -9,3 +9,5 @@ read_pipe.sh
 .python-version
 tags
 .env
+*.pyc
+.python-version

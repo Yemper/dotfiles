@@ -132,7 +132,8 @@ install_dotfiles () {
 
   for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink')
   do
-    dst="$HOME/.$(basename "${src%.*}")"
+    basefilename="$HOME/.$(basename "${src%.*}")"
+    dst="${basefilename/hidden_/}"
     link_file "$src" "$dst"
   done
 }
@@ -148,7 +149,7 @@ install_additional_settings_from_dropbox() {
     for src in $(ls "$dropbox_location")
     do
       dst="$HOME/.$(basename "${src%.*}")"
-    link_file "$dropbox_location/$src" "$dst"
+      link_file "$dropbox_location/$src" "$dst"
     done
   fi
 }
