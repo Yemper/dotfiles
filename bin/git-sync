@@ -1,9 +1,9 @@
 #!/bin/sh
 #
-# So simple it hurts, sync your master with remote master, prune all merged branches
+# So simple it hurts, sync your develop with remote develop, prune all merged branches
 # I do this every time I finish a feature branch and want to move on with my life
 
-git checkout master
+git checkout develop
 git fetch origin --prune
-git merge origin/master
+git merge origin/develop
 
