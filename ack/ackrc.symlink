@@ -18,6 +18,9 @@ js=json,tmpl,jst,coffee
 --type-add
 css=sass,scss
 
+--type-add
+yml=yml,yaml
+
 --ignore-dir=.git
 --ignore-dir=dist
 --ignore-dir=node_modules
